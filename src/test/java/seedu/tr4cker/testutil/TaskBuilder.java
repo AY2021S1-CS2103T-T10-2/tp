@@ -4,8 +4,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.tr4cker.model.tag.Tag;
-import seedu.tr4cker.model.task.*;
+import seedu.tr4cker.model.task.Address;
 import seedu.tr4cker.model.task.Deadline;
+import seedu.tr4cker.model.task.Email;
+import seedu.tr4cker.model.task.Name;
+import seedu.tr4cker.model.task.Task;
 import seedu.tr4cker.model.util.SampleDataUtil;
 
 /**
@@ -14,7 +17,7 @@ import seedu.tr4cker.model.util.SampleDataUtil;
 public class TaskBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
-    public static final String DEFAULT_DEADLINE= "85355255";
+    public static final String DEFAULT_DEADLINE = "2020-12-31 2359";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 

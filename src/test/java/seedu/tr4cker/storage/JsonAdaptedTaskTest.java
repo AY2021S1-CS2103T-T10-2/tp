@@ -13,19 +13,19 @@ import org.junit.jupiter.api.Test;
 
 import seedu.tr4cker.commons.exceptions.IllegalValueException;
 import seedu.tr4cker.model.task.Address;
+import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.task.Email;
 import seedu.tr4cker.model.task.Name;
-import seedu.tr4cker.model.task.Deadline;
 
 public class JsonAdaptedTaskTest {
     private static final String INVALID_NAME = "R@chel";
-    private static final String INVALID_DEADLINE= "+651234";
+    private static final String INVALID_DEADLINE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = BENSON.getName().toString();
-    private static final String VALID_DEADLINE= BENSON.getDeadline().toString();
+    private static final String VALID_DEADLINE = BENSON.getDeadline().toString();
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final String VALID_ADDRESS = BENSON.getAddress().toString();
     private static final List<JsonAdaptedTag> VALID_TAGS = BENSON.getTags().stream()

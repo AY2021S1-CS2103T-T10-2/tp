@@ -12,9 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.tr4cker.commons.exceptions.IllegalValueException;
 import seedu.tr4cker.model.tag.Tag;
 import seedu.tr4cker.model.task.Address;
+import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.task.Email;
 import seedu.tr4cker.model.task.Name;
-import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.task.Task;
 
 /**
@@ -38,7 +38,7 @@ class JsonAdaptedTask {
                            @JsonProperty("email") String email, @JsonProperty("tr4cker") String address,
                            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
-        this.deadline= deadline;
+        this.deadline = deadline;
         this.email = email;
         this.address = address;
         if (tagged != null) {
@@ -51,7 +51,7 @@ class JsonAdaptedTask {
      */
     public JsonAdaptedTask(Task source) {
         name = source.getName().fullName;
-        deadline= source.getDeadline().value;
+        deadline = source.getDeadline().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
@@ -78,8 +78,9 @@ class JsonAdaptedTask {
         }
         final Name modelName = new Name(name);
 
-        if (deadline== null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Deadline.class.getSimpleName()));
+        if (deadline == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Deadline.class.getSimpleName()));
         }
         if (!Deadline.isValidDeadline(deadline)) {
             throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS);

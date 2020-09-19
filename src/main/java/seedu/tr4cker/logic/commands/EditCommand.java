@@ -2,9 +2,9 @@ package seedu.tr4cker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.tr4cker.model.Model.PREDICATE_SHOW_ALL_TASKS;
 
@@ -20,8 +20,11 @@ import seedu.tr4cker.commons.util.CollectionUtil;
 import seedu.tr4cker.logic.commands.exceptions.CommandException;
 import seedu.tr4cker.model.Model;
 import seedu.tr4cker.model.tag.Tag;
-import seedu.tr4cker.model.task.*;
+import seedu.tr4cker.model.task.Address;
 import seedu.tr4cker.model.task.Deadline;
+import seedu.tr4cker.model.task.Email;
+import seedu.tr4cker.model.task.Name;
+import seedu.tr4cker.model.task.Task;
 
 /**
  * Edits the details of an existing task in the Tr4cker.
@@ -35,12 +38,12 @@ public class EditCommand extends Command {
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
-            + "[" + PREFIX_DEADLINE+ "DEADLINE] "
+            + "[" + PREFIX_DEADLINE + "DEADLINE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_DEADLINE+ "91234567 "
+            + PREFIX_DEADLINE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";

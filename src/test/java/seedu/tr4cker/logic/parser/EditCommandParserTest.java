@@ -3,25 +3,25 @@ package seedu.tr4cker.logic.parser;
 import static seedu.tr4cker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static seedu.tr4cker.logic.commands.CommandTestUtil.DEADLINE_DESC_AMY;
+import static seedu.tr4cker.logic.commands.CommandTestUtil.DEADLINE_DESC_BOB;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static seedu.tr4cker.logic.commands.CommandTestUtil.INVALID_DEADLINE_DESC;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-import static seedu.tr4cker.logic.commands.CommandTestUtil.INVALID_DEADLINE_DESC;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.tr4cker.logic.commands.CommandTestUtil.DEADLINE_DESC_AMY;
-import static seedu.tr4cker.logic.commands.CommandTestUtil.DEADLINE_DESC_BOB;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_DEADLINE_AMY;
+import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_DEADLINE_BOB;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_DEADLINE_AMY;
-import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_DEADLINE_BOB;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_TAG;
@@ -101,8 +101,8 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_FRIEND + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_AMY + VALID_DEADLINE_AMY,
-                Name.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC
+                + VALID_ADDRESS_AMY + VALID_DEADLINE_AMY, Name.MESSAGE_CONSTRAINTS);
     }
 
     @Test

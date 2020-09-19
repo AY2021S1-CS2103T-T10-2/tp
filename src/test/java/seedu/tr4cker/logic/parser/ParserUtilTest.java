@@ -16,19 +16,19 @@ import org.junit.jupiter.api.Test;
 import seedu.tr4cker.logic.parser.exceptions.ParseException;
 import seedu.tr4cker.model.tag.Tag;
 import seedu.tr4cker.model.task.Address;
+import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.task.Email;
 import seedu.tr4cker.model.task.Name;
-import seedu.tr4cker.model.task.Deadline;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
-    private static final String INVALID_DEADLINE= "+651234";
+    private static final String INVALID_DEADLINE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = "Rachel Walker";
-    private static final String VALID_DEADLINE= "123456";
+    private static final String VALID_DEADLINE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
@@ -97,7 +97,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseDeadline_validValueWithWhitespace_returnsTrimmedDeadline() throws Exception {
-        String deadlineWithWhitespace = WHITESPACE + VALID_DEADLINE+ WHITESPACE;
+        String deadlineWithWhitespace = WHITESPACE + VALID_DEADLINE + WHITESPACE;
         Deadline expectedDeadline = new Deadline(VALID_DEADLINE);
         assertEquals(expectedDeadline, ParserUtil.parseDeadline(deadlineWithWhitespace));
     }

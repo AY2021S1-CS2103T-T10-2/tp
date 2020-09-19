@@ -1,9 +1,9 @@
 package seedu.tr4cker.testutil;
 
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -31,7 +31,7 @@ public class TaskUtil {
     public static String getTaskDetails(Task task) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + task.getName().fullName + " ");
-        sb.append(PREFIX_DEADLINE+ task.getDeadline().value + " ");
+        sb.append(PREFIX_DEADLINE + task.getDeadline().value + " ");
         sb.append(PREFIX_EMAIL + task.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + task.getAddress().value + " ");
         task.getTags().stream().forEach(

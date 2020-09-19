@@ -2,9 +2,9 @@ package seedu.tr4cker.logic.parser;
 
 import static seedu.tr4cker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.tr4cker.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -14,9 +14,9 @@ import seedu.tr4cker.logic.commands.AddCommand;
 import seedu.tr4cker.logic.parser.exceptions.ParseException;
 import seedu.tr4cker.model.tag.Tag;
 import seedu.tr4cker.model.task.Address;
+import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.task.Email;
 import seedu.tr4cker.model.task.Name;
-import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.task.Task;
 
 /**
@@ -31,7 +31,8 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_DEADLINE,
+                        PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_DEADLINE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
