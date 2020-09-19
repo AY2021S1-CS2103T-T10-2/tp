@@ -6,7 +6,7 @@ import static seedu.tr4cker.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.tr4cker.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.tr4cker.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
+import static seedu.tr4cker.logic.commands.CommandTestUtil.DEADLINE_DESC_AMY;
 import static seedu.tr4cker.testutil.Assert.assertThrows;
 import static seedu.tr4cker.testutil.TypicalTasks.AMY;
 
@@ -79,7 +79,7 @@ public class LogicManagerTest {
         logic = new LogicManager(model, storage);
 
         // Execute add command
-        String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
+        String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DEADLINE_DESC_AMY + EMAIL_DESC_AMY
                 + ADDRESS_DESC_AMY;
         Task expectedTask = new TaskBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();

@@ -17,7 +17,7 @@ public class Task {
 
     // Identity fields
     private final Name name;
-    private final Phone phone;
+    private final Deadline deadline;
     private final Email email;
 
     // Data fields
@@ -27,10 +27,10 @@ public class Task {
     /**
      * Every field must be present and not null.
      */
-    public Task(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Task(Name name, Deadline deadline, Email email, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, deadline, email, address, tags);
         this.name = name;
-        this.phone = phone;
+        this.deadline = deadline;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
@@ -40,8 +40,8 @@ public class Task {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Deadline getDeadline() {
+        return deadline;
     }
 
     public Email getEmail() {
@@ -71,7 +71,7 @@ public class Task {
 
         return otherTask != null
                 && otherTask.getName().equals(getName())
-                && (otherTask.getPhone().equals(getPhone()) || otherTask.getEmail().equals(getEmail()));
+                && (otherTask.getDeadline().equals(getDeadline()) || otherTask.getEmail().equals(getEmail()));
     }
 
     /**
@@ -90,7 +90,7 @@ public class Task {
 
         Task otherTask = (Task) other;
         return otherTask.getName().equals(getName())
-                && otherTask.getPhone().equals(getPhone())
+                && otherTask.getDeadline().equals(getDeadline())
                 && otherTask.getEmail().equals(getEmail())
                 && otherTask.getAddress().equals(getAddress())
                 && otherTask.getTags().equals(getTags());
@@ -99,15 +99,15 @@ public class Task {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, deadline, email, address, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" Phone: ")
-                .append(getPhone())
+                .append(" Deadline: ")
+                .append(getDeadline())
                 .append(" Email: ")
                 .append(getEmail())
                 .append(" Address: ")

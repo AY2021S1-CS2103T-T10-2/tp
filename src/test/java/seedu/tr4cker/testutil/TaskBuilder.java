@@ -4,11 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.tr4cker.model.tag.Tag;
-import seedu.tr4cker.model.task.Address;
-import seedu.tr4cker.model.task.Email;
-import seedu.tr4cker.model.task.Name;
-import seedu.tr4cker.model.task.Phone;
-import seedu.tr4cker.model.task.Task;
+import seedu.tr4cker.model.task.*;
+import seedu.tr4cker.model.task.Deadline;
 import seedu.tr4cker.model.util.SampleDataUtil;
 
 /**
@@ -17,12 +14,12 @@ import seedu.tr4cker.model.util.SampleDataUtil;
 public class TaskBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
-    public static final String DEFAULT_PHONE = "85355255";
+    public static final String DEFAULT_DEADLINE= "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private Name name;
-    private Phone phone;
+    private Deadline deadline;
     private Email email;
     private Address address;
     private Set<Tag> tags;
@@ -32,7 +29,7 @@ public class TaskBuilder {
      */
     public TaskBuilder() {
         name = new Name(DEFAULT_NAME);
-        phone = new Phone(DEFAULT_PHONE);
+        deadline = new Deadline(DEFAULT_DEADLINE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
@@ -43,7 +40,7 @@ public class TaskBuilder {
      */
     public TaskBuilder(Task taskToCopy) {
         name = taskToCopy.getName();
-        phone = taskToCopy.getPhone();
+        deadline = taskToCopy.getDeadline();
         email = taskToCopy.getEmail();
         address = taskToCopy.getAddress();
         tags = new HashSet<>(taskToCopy.getTags());
@@ -74,10 +71,10 @@ public class TaskBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code Task} that we are building.
+     * Sets the {@code Deadline} of the {@code Task} that we are building.
      */
-    public TaskBuilder withPhone(String phone) {
-        this.phone = new Phone(phone);
+    public TaskBuilder withDeadline(String deadline) {
+        this.deadline = new Deadline(deadline);
         return this;
     }
 
@@ -90,7 +87,7 @@ public class TaskBuilder {
     }
 
     public Task build() {
-        return new Task(name, phone, email, address, tags);
+        return new Task(name, deadline, email, address, tags);
     }
 
 }

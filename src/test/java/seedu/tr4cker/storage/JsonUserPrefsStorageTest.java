@@ -73,7 +73,7 @@ public class JsonUserPrefsStorageTest {
     private UserPrefs getTypicalUserPrefs() {
         UserPrefs userPrefs = new UserPrefs();
         userPrefs.setGuiSettings(new GuiSettings(1000, 500, 300, 100));
-        userPrefs.setTr4ckerFilePath(Paths.get("addressbook.json"));
+        userPrefs.setTr4ckerFilePath(Paths.get("tr4cker.json"));
         return userPrefs;
     }
 

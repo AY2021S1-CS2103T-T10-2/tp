@@ -16,7 +16,7 @@ import seedu.tr4cker.model.task.Task;
 /**
  * An Immutable Tr4cker that is serializable to JSON format.
  */
-@JsonRootName(value = "addressbook")
+@JsonRootName(value = "tr4cker")
 class JsonSerializableTr4cker {
 
     public static final String MESSAGE_DUPLICATE_TASK = "Task list contains duplicate task(s).";

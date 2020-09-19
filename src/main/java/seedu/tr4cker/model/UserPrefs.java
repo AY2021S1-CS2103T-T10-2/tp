@@ -14,7 +14,7 @@ import seedu.tr4cker.commons.core.GuiSettings;
 public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
-    private Path tr4ckerFilePath = Paths.get("data" , "addressbook.json");
+    private Path tr4ckerFilePath = Paths.get("data" , "tr4cker.json");
 
     /**
      * Creates a {@code UserPrefs} with default values.
