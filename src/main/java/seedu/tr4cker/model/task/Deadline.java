@@ -17,7 +17,9 @@ public class Deadline {
     public static final String MESSAGE_CONSTRAINTS =
             "Deadlines should only contain numbers, and it should follow the format yyyy-MM-dd HHmm";
     public static final String VALIDATION_REGEX = "\\d{4}-\\d{2}-\\d{2} \\d{4}";
-    public final String value;
+    public static final DateTimeFormatter DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+    public final String value; // for displaying the time
+    public final LocalDateTime dateTime; // for sorting, finding tasks on day, etc
 
     /**
      * Constructs a {@code Deadline}.
@@ -28,6 +30,7 @@ public class Deadline {
         requireNonNull(deadline);
         checkArgument(isValidDeadline(deadline), MESSAGE_CONSTRAINTS);
         value = deadline;
+        dateTime = LocalDateTime.parse(deadline, DATE_TIME_FORMAT);
     }
 
     /**
@@ -35,7 +38,7 @@ public class Deadline {
      */
     public static boolean isValidDeadline(String test) {
         try {
-            LocalDateTime.parse(test, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+            LocalDateTime.parse(test, DATE_TIME_FORMAT);
         } catch (DateTimeParseException ex) {
             return false;
         }
